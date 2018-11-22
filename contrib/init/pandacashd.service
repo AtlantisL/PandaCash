@@ -1,0 +1,26 @@
+[Unit]
+Description=PandaCash's distributed currency daemon
+After=network.target
+
+[Service]
+User=pandacash
+Group=pandacash
+
+Type=forking
+PIDFile=/var/lib/pandacashd/pandacashd.pid
+
+ExecStart=/usr/bin/pandacashd -daemon -pid=/var/lib/pandacashd/pandacashd.pid \
+          -conf=/etc/pandacash/pandacash.conf -datadir=/var/lib/pandacashd
+
+ExecStop=-/usr/bin/pandacash-cli -conf=/etc/pandacash/pandacash.conf \
+         -datadir=/var/lib/pandacashd stop
+
+Restart=always
+PrivateTmp=true
+TimeoutStopSec=60s
+TimeoutStartSec=2s
+StartLimitInterval=120s
+StartLimitBurst=5
+
+[Install]
+WantedBy=multi-user.target

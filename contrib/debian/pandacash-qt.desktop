@@ -1,0 +1,12 @@
+[Desktop Entry]
+Encoding=UTF-8
+Name=PandaCash
+Comment=PandaCash P2P Cryptocurrency
+Comment[fr]=PandaCash, monnaie virtuelle cryptographique pair à pair
+Comment[tr]=PandaCash, eşten eşe kriptografik sanal para birimi
+Exec=pandacash-qt %u
+Terminal=false
+Type=Application
+Icon=pandacash128
+MimeType=x-scheme-handler/pandacash;
+Categories=Office;Finance;
